@@ -1,0 +1,16 @@
+# Texto com LF em qualquer SO (Windows, macOS, Linux)
+* text=auto eol=lf
+
+# Binários: não converter fim de linha
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary

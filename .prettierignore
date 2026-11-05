@@ -1,0 +1,21 @@
+# Dependências e builds
+node_modules
+dist
+build
+coverage
+.vite
+
+# Lockfiles (não reformatar)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Cache e ambientes
+.env
+.env.*
+!.env.example
+
+# Outros artefatos
+*.min.js
+*.min.css
+public/assets

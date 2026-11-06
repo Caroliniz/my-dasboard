@@ -5,7 +5,7 @@
   --color-surface: #1c2230;
   --color-foreground: #eef1f6;
   --color-muted: #9aa4b5;
-  --color-primary: #7c5cff;
+  --color-primary: #7c5cff; /*Cor texto*/
   --color-border: #2e3648;
 
   --font-sans: system-ui, "Segoe UI", sans-serif;

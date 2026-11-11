@@ -3,6 +3,7 @@ import Footer from './components/Footer.jsx';
 import Menu from './components/Menu.jsx';
 import SummaryCard from './components/SummaryCard.jsx';
 import Panel from './components/Panel.jsx';
+import InfoRow from './components/InfoRow.jsx';
 
 function App() {
   return (
@@ -36,6 +37,12 @@ function App() {
           <p className="mt-1 text-muted">
             Em uma cidade flutuante onde os ricos descartam seu lixo...
           </p>
+          <div className="mt-4 grid gap-x-6 md:grid-cols-2">
+            <InfoRow label="Plataforma" value="Crunchroll" />
+            <InfoRow label="Classificação" value="16" />
+            <InfoRow label="Duração" value="1T 24E" />
+            <InfoRow label="Progresso" value="12E" />
+          </div>
         </Panel>
         <Panel id="list" title="Lista" className="xl:min-h-80">
           <p className="text-muted">Em construção.</p>

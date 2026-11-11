@@ -4,6 +4,7 @@ import Menu from './components/Menu.jsx';
 import SummaryCard from './components/SummaryCard.jsx';
 import Panel from './components/Panel.jsx';
 import InfoRow from './components/InfoRow.jsx';
+import StatusBadge from './components/StatusBadge.jsx';
 
 function App() {
   return (
@@ -33,15 +34,21 @@ function App() {
           title="Assistindo agora"
           className="md:col-span-2"
         >
-          <h3 className="font-heading text-xl font-bold">Gachiakuta</h3>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="font-heading text-xl font-bold">Gachiakuta</h3>
+            <StatusBadge label="Assistindo" isActive />
+            <StatusBadge label="♡" />
+          </div>
           <p className="mt-1 text-muted">
-            Em uma cidade flutuante onde os ricos descartam seu lixo...
+            Em uma cidade flutuante onde os ricos descartam seu lixo (e
+            pessoas), Rudo é acusado falsamente de homicídio e jogado no Abismo,
+            um lugar infernal onde vivem monstros de lixo mutantes.
           </p>
           <div className="mt-4 grid gap-x-6 md:grid-cols-2">
             <InfoRow label="Plataforma" value="Crunchroll" />
             <InfoRow label="Classificação" value="16" />
-            <InfoRow label="Duração" value="1T 24E" />
-            <InfoRow label="Progresso" value="12E" />
+            <InfoRow label="Duração" value="T1 E24" />
+            <InfoRow label="Progresso" value="E12" />
           </div>
         </Panel>
         <Panel id="list" title="Lista" className="xl:min-h-80">

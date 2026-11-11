@@ -44,6 +44,16 @@ return (
           Resumo
         </a>
       </li>
+      <li>
+        <a href="#list" onClick={closeMenu} className={linkClass}>
+          Lista
+        </a>
+      </li>
+      <li>
+        <a href="#chart" onClick={closeMenu} className={linkClass}>
+          Gráfico
+        </a>
+      </li>
       {/* + Lista (#list) e Gráfico (#chart), iguais */}
     </ul>
   </nav>

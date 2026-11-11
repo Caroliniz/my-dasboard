@@ -5,10 +5,10 @@ function Header() {
         md:flex-row md:items-baseline md:justify-between md:px-8"
     >
       <h1 className="font-heading text-2xl font-bold md:text-3xl">
-        Dashboard · Games
+        Ramen · Animes e Mangas
       </h1>
-      <p className="text-muted">Meus jogos e partidas</p>
+      <p className="text-muted">Meus Animes e Mangas</p>
     </header>
-  )
+  );
 }
 export default Header

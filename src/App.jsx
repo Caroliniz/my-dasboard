@@ -16,12 +16,10 @@ function App() {
         <Menu />
         <Panel id="summary" title="Resumo" className="md:col-span-2">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <SummaryCard title="Jogos" value={42} icon="🎮" />
-            <SummaryCard title="Horas jogadas" value={318} icon="⏱️" />
-            <SummaryCard title="Zerados" value={17} icon="🏆" isHighlighted />
-            <SummaryCard title="Nota média" value="8,6" />
-
-            {/* + os outros 3 cards */}
+            <SummaryCard title="Favoritados" value={42} icon="💛" isHighlighted />
+            <SummaryCard title="Em andamento" value={318} icon="⏱️" />
+            <SummaryCard title="Assistidos" value={17} icon="🏆" />
+            <SummaryCard title="Lista" value="8,6" />
           </div>
         </Panel>
         <Panel id="list" title="Lista" className="xl:min-h-80">

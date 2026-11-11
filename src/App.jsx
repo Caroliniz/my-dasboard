@@ -15,12 +15,27 @@ function App() {
       >
         <Menu />
         <Panel id="summary" title="Resumo" className="md:col-span-2">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            <SummaryCard title="Favoritados" value={42} icon="💛" isHighlighted />
-            <SummaryCard title="Em andamento" value={318} icon="⏱️" />
-            <SummaryCard title="Assistidos" value={17} icon="🏆" />
-            <SummaryCard title="Lista" value="8,6" />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 ">
+            <SummaryCard
+              title="Favoritados"
+              value={14}
+              icon="💛"
+              isHighlighted
+            />
+            <SummaryCard title="Em andamento" value={8} icon="⏱️" />
+            <SummaryCard title="Assistidos" value={27} icon="🏆" />
+            <SummaryCard title="Lista" value="53" />
           </div>
+        </Panel>
+        <Panel
+          id="highlight"
+          title="Assistindo agora"
+          className="md:col-span-2"
+        >
+          <h3 className="font-heading text-xl font-bold">Gachiakuta</h3>
+          <p className="mt-1 text-muted">
+            Em uma cidade flutuante onde os ricos descartam seu lixo...
+          </p>
         </Panel>
         <Panel id="list" title="Lista" className="xl:min-h-80">
           <p className="text-muted">Em construção.</p>

@@ -19,7 +19,7 @@ return (
   <nav
     id="menu"
     className="rounded-xl border border-border bg-surface p-3
-        md:col-span-2 xl:col-span-1 xl:row-span-2"
+        md:col-span-2 xl:col-span-1 xl:row-span-3"
   >
     <button
       type="button"
@@ -52,6 +52,11 @@ return (
       <li>
         <a href="#chart" onClick={closeMenu} className={linkClass}>
           Gráfico
+        </a>
+      </li>
+      <li>
+        <a href="#highlight" onClick={closeMenu} className={linkClass}>
+          Assisitir agora
         </a>
       </li>
       {/* + Lista (#list) e Gráfico (#chart), iguais */}

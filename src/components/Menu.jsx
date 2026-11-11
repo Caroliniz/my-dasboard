@@ -16,7 +16,11 @@ function Menu() {
   }
 
 return (
-  <nav id="menu">
+  <nav
+    id="menu"
+    className="rounded-xl border border-border bg-surface p-3
+        md:col-span-2 xl:col-span-1 xl:row-span-2"
+  >
     <button
       type="button"
       onClick={toggleMenu}

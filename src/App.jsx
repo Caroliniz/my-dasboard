@@ -5,6 +5,7 @@ import SummaryCard from './components/SummaryCard.jsx';
 import Panel from './components/Panel.jsx';
 import InfoRow from './components/InfoRow.jsx';
 import StatusBadge from './components/StatusBadge.jsx';
+import DetailsToggle from './components/DetailsToggle.jsx';
 
 function App() {
   return (
@@ -39,11 +40,13 @@ function App() {
             <StatusBadge label="Assistindo" isActive />
             <StatusBadge label="♡" />
           </div>
-          <p className="mt-1 text-muted">
-            Em uma cidade flutuante onde os ricos descartam seu lixo (e
-            pessoas), Rudo é acusado falsamente de homicídio e jogado no Abismo,
-            um lugar infernal onde vivem monstros de lixo mutantes.
-          </p>
+          <DetailsToggle>
+            <p className="mt-1 text-muted">
+              Em uma cidade flutuante onde os ricos descartam seu lixo (e
+              pessoas), Rudo é acusado falsamente de homicídio e jogado no
+              Abismo, um lugar infernal onde vivem monstros de lixo mutantes.
+            </p>
+          </DetailsToggle>
           <div className="mt-4 grid gap-x-6 md:grid-cols-2">
             <InfoRow label="Plataforma" value="Crunchroll" />
             <InfoRow label="Classificação" value="16" />

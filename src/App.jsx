@@ -14,6 +14,16 @@ const summaryCards = [
   { id: 'lista', title: 'Lista', value: '53' },
 ];
 
+const animes = [
+  { id: 'gachiakuta', title: 'Gachiakuta', temp: 13, ep: 3, isCompleted: false, },
+  { id: 'abotecaria', title: 'A Botecaria', temp: 5, ep: 3, isCompleted: true },
+  { id: 'bocchi', title: 'Bocchi the Rock', temp: 8, ep: 3, isCompleted: true },
+  { id: 'attack-on-titan', title: 'Attack on Titan', temp: 15, ep: 3, isCompleted: false, },
+  { id: 'bungo-stray-dogs', title: 'Bungo Stray Dogs', temp: 12, ep: 3, isCompleted: true, },
+  { id: 'haikyuu', title: 'Haikyuu', temp: 10, ep: 3, isCompleted: true },
+  { id: 'one-piece', title: 'One Piece', temp: 20, ep: 3, isCompleted: false },
+];
+
 function App() {
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -61,9 +71,24 @@ function App() {
             <InfoRow label="Progresso" value="E12" />
           </div>
         </Panel>
+
         <Panel id="list" title="Lista" className="xl:min-h-80">
-          <p className="text-muted">Em construção.</p>
+          <ul>
+            {animes.map((anime) => (
+              <li
+                key={anime.id}
+                className="flex flex-wrap items-center justify-between gap-2
+          border-b border-border py-3"
+              >
+                <div>
+                  <p className="font-bold">{anime.title}</p>
+                  <p className="text-sm text-muted">T{anime.temp} E{anime.ep}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </Panel>
+
         <Panel id="chart" title="Grafico" className="xl:min-h-80">
           <p className="text-muted">Em construção.</p>
         </Panel>

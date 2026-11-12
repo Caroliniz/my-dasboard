@@ -6,6 +6,7 @@ import Panel from './components/Panel.jsx';
 import InfoRow from './components/InfoRow.jsx';
 import StatusBadge from './components/StatusBadge.jsx';
 import DetailsToggle from './components/DetailsToggle.jsx';
+import ListItem from './components/ListItem.jsx';
 
 const summaryCards = [
   { id: 'favoritados', title: 'Favoritados', value: 14, icon: '💛' },
@@ -72,19 +73,10 @@ function App() {
           </div>
         </Panel>
 
-        <Panel id="list" title="Lista" className="xl:min-h-80">
+        <Panel id="list" title="Meus jogos" className="xl:min-h-80">
           <ul>
             {animes.map((anime) => (
-              <li
-                key={anime.id}
-                className="flex flex-wrap items-center justify-between gap-2
-          border-b border-border py-3"
-              >
-                <div>
-                  <p className="font-bold">{anime.title}</p>
-                  <p className="text-sm text-muted">T{anime.temp} E{anime.ep}</p>
-                </div>
-              </li>
+              <ListItem key={anime.id} title={anime.title} temp={anime.temp} ep={anime.ep}/>
             ))}
           </ul>
         </Panel>

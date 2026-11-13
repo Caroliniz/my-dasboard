@@ -73,12 +73,22 @@ function App() {
           </div>
         </Panel>
 
-        <Panel id="list" title="Meus jogos" className="xl:min-h-80">
-          <ul>
-            {animes.map((anime) => (
-              <ListItem key={anime.id} title={anime.title} temp={anime.temp} ep={anime.ep}/>
-            ))}
-          </ul>
+        <Panel id="list" title="Lista" className="xl:min-h-80">
+          {animes.length === 0 ? (
+            <p className="text-muted">Nenhum jogo na lista ainda.</p>
+          ) : (
+            <ul>
+              {animes.map((anime) => (
+                <ListItem
+                  key={anime.id}
+                  title={anime.title}
+                  temp={anime.temp}
+                  ep={anime.ep}
+                  isCompleted={anime.isCompleted}
+                />
+              ))}
+            </ul>
+          )}
         </Panel>
 
         <Panel id="chart" title="Grafico" className="xl:min-h-80">

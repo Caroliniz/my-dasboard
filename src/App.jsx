@@ -6,25 +6,41 @@ import Panel from './components/Panel.jsx';
 import InfoRow from './components/InfoRow.jsx';
 import StatusBadge from './components/StatusBadge.jsx';
 import DetailsToggle from './components/DetailsToggle.jsx';
+import { useState } from 'react';
 
 const summaryCards = [
   { id: 'favoritados', title: 'Favoritados', value: 14, icon: '💛' },
   { id: 'Assistindo', title: 'Assistindo', value: 8, icon: '⏱️' },
   { id: 'assistidos', title: 'Assistidos', value: 27, icon: '🏆' },
-  { id: 'lista', title: 'Lista', value: '53' },
+  { id: 'lista', title: 'Lista', value: '7' },
 ];
 
 const animes = [
-  { id: 'gachiakuta', title: 'Gachiakuta', temp: 13, ep: 3, isCompleted: false, cover: '/List/gachiakuta.jpg' },
-  { id: 'abotecaria', title: 'A Botecaria', temp: 5, ep: 3, isCompleted: true, cover: '/List/Abotecaria.webp' },
-  { id: 'bocchi', title: 'Bocchi the Rock', temp: 8, ep: 3, isCompleted: true, cover: '/List/bocchi.jpg' },
-  { id: 'attack-on-titan', title: 'Attack on Titan', temp: 15, ep: 3, isCompleted: false, cover: '/List/ATT.jpg' },
-  { id: 'bungo-stray-dogs', title: 'Bungo Stray Dogs', temp: 12, ep: 3, isCompleted: true, cover: '/List/strayDogs.jpg' },
-  { id: 'haikyuu', title: 'Haikyuu', temp: 10, ep: 3, isCompleted: true, cover: '/List/haikyu.jpg' },
-  { id: 'one-piece', title: 'One Piece', temp: 20, ep: 3, isCompleted: false, cover: '/List/onePiece.jpg' },
+  { id: 'gachiakuta', title: 'Gachiakuta', temp: 1, ep: 24, isCompleted: true, cover: '/List/gachiakuta.jpg' },
+  { id: 'abotecaria', title: 'A Botecaria', temp: 3, ep: 55, isCompleted: false, cover: '/List/Abotecaria.webp' },
+  { id: 'bocchi', title: 'Bocchi the Rock', temp: 1, ep: 12, isCompleted: true, cover: '/List/bocchi.jpg' },
+  { id: 'attack-on-titan', title: 'Attack on Titan', temp: 6, ep: 100, isCompleted: false, cover: '/List/ATT.jpg' },
+  { id: 'bungo-stray-dogs', title: 'Bungo Stray Dogs', temp: 5, ep: 61, isCompleted: true, cover: '/List/strayDogs.jpg' },
+  { id: 'haikyuu', title: 'Haikyuu', temp: 7, ep: 94, isCompleted: true, cover: '/List/haikyu.jpg' },
+  { id: 'one-piece', title: 'One Piece', temp: 31, ep: 1436, isCompleted: false, cover: '/List/onePiece.jpg' },
+];
+
+const filterOptions = [
+  { id: 'all', label: 'Todos' },
+  { id: 'attending', label: 'Concluido' },
+  { id: 'completed', label: 'Assistindo' },
 ];
 
 function App() {
+  const [statusFilter, setStatusFilter] = useState('all');
+
+  const visibleAnimes = animes.filter((anime) => {
+    if (statusFilter === 'completed') return !anime.isCompleted;
+    if (statusFilter === 'attending') return anime.isCompleted;
+
+    return true;
+  });
+
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
@@ -43,7 +59,7 @@ function App() {
                 title={card.title}
                 value={card.value}
                 icon={card.icon}
-                isHighlighted={card.isHighlighted}
+                isHighlighted={card.isCompleted}
               />
             ))}
           </div>
@@ -55,8 +71,25 @@ function App() {
           title="Meus animes"
           className="md:col-span-2 xl:min-h-80"
         >
+          <div className="mb-4 flex flex-wrap gap-2">
+            {filterOptions.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                onClick={() => setStatusFilter(option.id)}
+                aria-pressed={statusFilter === option.id}
+                className={
+                  statusFilter === option.id
+                    ? 'rounded-full border border-primary bg-primary px-3 py-1 text-sm font-bold text-background'
+                    : 'rounded-full border border-border px-3 py-1 text-sm font-bold text-muted hover:border-primary'
+                }
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
           <div className="md:col-span-2 xl:min-h-80 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-            {animes.map((anime) => (
+            {visibleAnimes.map((anime) => (
               <article key={anime.id} className="w-36 shrink-0 snap-start">
                 <img
                   src={anime.cover}
@@ -69,6 +102,10 @@ function App() {
                 <p className="text-sm text-muted">Temporadas {anime.temp}</p>
 
                 <p className="text-sm text-muted">Episódios {anime.ep}</p>
+                <StatusBadge
+                  label={anime.isCompleted ? 'Concluído' : 'Assistindo'}
+                  isActive={!anime.isCompleted}
+                />
               </article>
             ))}
           </div>
@@ -84,7 +121,7 @@ function App() {
             />
             <h3 className="font-heading text-xl font-bold">Gachiakuta</h3>
             <StatusBadge label="Assistindo" isActive />
-            <StatusBadge label="♡" />
+            <StatusBadge label="★★★⯪☆" />
           </div>
           <DetailsToggle>
             <p className="mt-1 text-muted">

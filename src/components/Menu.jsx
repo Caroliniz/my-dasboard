@@ -54,13 +54,13 @@ function Menu() { {/*significa que ele recebe uma propriedade q será uma funç�
           </a>
         </li>
         <li>
-          <a href="#chart" onClick={closeMenu} className={linkClass}>
-            Gráfico
+          <a href="#highlight" onClick={closeMenu} className={linkClass}>
+            Assisitindo agora
           </a>
         </li>
         <li>
-          <a href="#highlight" onClick={closeMenu} className={linkClass}>
-            Assisitir agora
+          <a href="#chart" onClick={closeMenu} className={linkClass}>
+            Gráfico
           </a>
         </li>
         {/* + Lista (#list) e Gráfico (#chart), iguais */}

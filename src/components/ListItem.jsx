@@ -17,7 +17,7 @@ function ListItem({ title, temp, ep, isCompleted = false }) {
         </p>
       </div>
       <StatusBadge
-        label={isCompleted ? 'Zerado' : 'Jogando'}
+        label={isCompleted ? 'Concluído' : 'Em andamento'}
         isActive={!isCompleted}
       />
     </li>

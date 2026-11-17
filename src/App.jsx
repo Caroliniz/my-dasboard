@@ -9,10 +9,10 @@ import DetailsToggle from './components/DetailsToggle.jsx';
 import { useState } from 'react';
 
 const summaryCards = [
-  { id: 'favoritados', title: 'Favoritados', value: 14, icon: '💛' },
-  { id: 'Assistindo', title: 'Assistindo', value: 8, icon: '⏱️' },
-  { id: 'assistidos', title: 'Assistidos', value: 27, icon: '🏆' },
-  { id: 'lista', title: 'Lista', value: '7' },
+  { id: 'favoritados', title: 'Favoritados', value: 6, icon: '💛' },
+  { id: 'Assistindo', title: 'Assistindo', value: 4, icon: '⏱️' },
+  { id: 'assistidos', title: 'Assistidos', value: 4, icon: '🏆' },
+  { id: 'lista', title: 'Lista', value: '8' },
 ];
 
 const animes = [
@@ -22,6 +22,7 @@ const animes = [
   { id: 'attack-on-titan', title: 'Attack on Titan', temp: 6, ep: 100, isCompleted: false, cover: '/List/ATT.jpg' },
   { id: 'bungo-stray-dogs', title: 'Bungo Stray Dogs', temp: 5, ep: 61, isCompleted: true, cover: '/List/strayDogs.jpg' },
   { id: 'haikyuu', title: 'Haikyuu', temp: 7, ep: 94, isCompleted: true, cover: '/List/haikyu.jpg' },
+  { id: 'kaguyasama', title: 'Kaguya-sama: Love is War', temp: 3, ep: 36, isCompleted: false, cover: '/List/kaguya.jpg' },
   { id: 'one-piece', title: 'One Piece', temp: 31, ep: 1436, isCompleted: false, cover: '/List/onePiece.jpg' },
 ];
 
@@ -33,12 +34,16 @@ const filterOptions = [
 
 function App() {
   const [statusFilter, setStatusFilter] = useState('all');
+  const [search, setSearch] = useState('');
+
+  const searchTerm = search.trim().toLowerCase();
 
   const visibleAnimes = animes.filter((anime) => {
-    if (statusFilter === 'completed') return !anime.isCompleted;
-    if (statusFilter === 'attending') return anime.isCompleted;
+    const matchesSearch = anime.title.toLowerCase().includes(searchTerm);
+    if (statusFilter === 'completed') return !anime.isCompleted && matchesSearch;
+    if (statusFilter === 'attending') return anime.isCompleted && matchesSearch;
 
-    return true;
+    return matchesSearch;
   });
 
   return (
@@ -71,6 +76,21 @@ function App() {
           title="Meus animes"
           className="md:col-span-2 xl:min-h-80"
         >
+          <label htmlFor="game-search" className="text-sm text-muted">
+            Buscar pelo nome
+          </label>
+          <input
+            id="game-search"
+            type="search"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder="Ex.: piece"
+            className="mt-1 mb-3 w-full rounded-lg border border-border bg-background
+    px-3 py-2 focus:border-primary focus:outline-none"
+          />
+          <p className="mb-2 text-sm text-muted" aria-live="polite">
+            {visibleAnimes.length} de {animes.length} jogos
+          </p>
           <div className="mb-4 flex flex-wrap gap-2">
             {filterOptions.map((option) => (
               <button

@@ -3,17 +3,22 @@ import InfoRow from "../components/InfoRow";
 import Panel from "../components/Panel";
 import StatusBadge from "../components/StatusBadge";
 import SummaryCard from "../components/SummaryCard";
-import { animes } from "../data/animes";
+import { useAnime } from '../context/AnimeContext.js';
+import { initialAnime } from '../data/animes';
 import { Link } from "react-router-dom";
 
 function DashboardPage() {
+  const { animes } = useAnime();
 
   {/*Sumario*/}
-  const totalHours = animes.reduce((total, game) => total + game.hours, 0);
-  const completedCount = animes.filter((game) => game.isCompleted).length;
+  const totalHours = initialAnime.reduce(
+    (total, game) => total + game.hours,
+    0,
+  );
+  const completedCount = initialAnime.filter((game) => game.isCompleted).length;
 
   const summaryCards = [
-    { id: 'games', title: 'Favoritados', value: animes.length, icon: '💛' },
+    { id: 'games', title: 'Favoritados', value: initialAnime.length, icon: '💛' },
     { id: 'hours', title: 'Li', value: totalHours, icon: '⏱️' },
     {
       id: 'completed',
@@ -30,7 +35,7 @@ function DashboardPage() {
     },
   ];
 
-    const firstAnime = animes.slice(0, 3);
+    const firstAnime = initialAnime.slice(0, 3);
     return (
       <>
         {/*SUMARIO */}

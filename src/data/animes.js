@@ -1,4 +1,4 @@
-export const animes = [
+export const initialAnime = [
   {
     id: 'gachiakuta',
     title: 'Gachiakuta',

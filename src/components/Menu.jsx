@@ -1,6 +1,11 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-const linkClass = 'block rounded-lg px-3 py-2 hover:bg-background hover:text-primary';
+function linkClass({ isActive }) {
+  return isActive
+    ? 'block rounded-lg bg-primary px-3 py-2 font-bold text-background'
+    : 'block rounded-lg px-3 py-2 hover:bg-background hover:text-primary';
+}
 
 function Menu() { {/*significa que ele recebe uma propriedade q será uma função enviada pelo App. */}
   const [isOpen, setIsOpen] = useState(false);
@@ -44,26 +49,26 @@ function Menu() { {/*significa que ele recebe uma propriedade q será uma funç�
         className={`mt-3 flex-col gap-1 xl:mt-0 xl:flex ${isOpen ? 'flex' : 'hidden'}`}
       >
         <li>
-          <a href="#summary" onClick={closeMenu} className={linkClass}>
-            Resumo
-          </a>
+          <NavLink to="/" end onClick={closeMenu} className={linkClass}>
+            Menu
+          </NavLink>
         </li>
         <li>
-          <a href="#list" onClick={closeMenu} className={linkClass}>
+          <NavLink to="/lista" onClick={closeMenu} className={linkClass}>
             Lista
-          </a>
+          </NavLink>
         </li>
-        <li>
-          <a href="#highlight" onClick={closeMenu} className={linkClass}>
+        {/*<li>
+          <NavLink to="#highlight" onClick={closeMenu} className={linkClass}>
             Assisitindo agora
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#chart" onClick={closeMenu} className={linkClass}>
+          <NavLink to="#chart" onClick={closeMenu} className={linkClass}>
             Gráfico
-          </a>
+          </NavLink>
         </li>
-        {/* + Lista (#list) e Gráfico (#chart), iguais */}
+         + Lista (#list) e Gráfico (#chart), iguais */}
       </ul>
     </nav>
   );

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import DetailsToggle from "../components/DetailsToggle";
 import InfoRow from "../components/InfoRow";
 import Panel from "../components/Panel";
@@ -7,21 +6,7 @@ import SummaryCard from "../components/SummaryCard";
 import { animes } from "../data/animes";
 import { Link } from "react-router-dom";
 
-
-const totalHours = animes.reduce((total, game) => total + game.hours, 0);
-const completedCount = animes.filter((game) => game.isCompleted).length;
-
-const filterOptions = [
-  { id: 'all', label: 'Todos' },
-  { id: 'attending', label: 'Concluido' },
-  { id: 'completed', label: 'Assistindo' },
-];
-
 function DashboardPage() {
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [search, setSearch] = useState('');
-
-  const searchTerm = search.trim().toLowerCase();
 
   {/*Sumario*/}
   const totalHours = animes.reduce((total, game) => total + game.hours, 0);
@@ -44,14 +29,6 @@ function DashboardPage() {
       icon: '⏱️',
     },
   ];
-
-  const visibleAnimes = animes.filter((anime) => {
-    const matchesSearch = anime.title.toLowerCase().includes(searchTerm);
-    if (statusFilter === 'completed') return !anime.isCompleted && matchesSearch;
-    if (statusFilter === 'attending') return anime.isCompleted && matchesSearch;
-
-    return matchesSearch;
-  });
 
     const firstAnime = animes.slice(0, 3);
     return (

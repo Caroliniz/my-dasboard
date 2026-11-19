@@ -2,6 +2,7 @@ import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Menu from './components/Menu.jsx';
 import ListPage from './pages/ListPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 import { Routes, Route } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage.jsx';
 
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/lista" element={<ListPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

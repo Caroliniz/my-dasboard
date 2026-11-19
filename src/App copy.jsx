@@ -6,7 +6,6 @@ import Panel from './components/Panel.jsx';
 import InfoRow from './components/InfoRow.jsx';
 import StatusBadge from './components/StatusBadge.jsx';
 import DetailsToggle from './components/DetailsToggle.jsx';
-import { Routes, Route } from 'react-router-dom';
 import { animes } from './data/animes.js';
 import { StrictMode, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
@@ -93,7 +92,7 @@ function App() {
           title="Meus animes"
           className="md:col-span-2 xl:min-h-80"
         >
-        
+
           {/*Buscar pelo nome  highlight*/}
           <label htmlFor="game-search" className="text-sm text-muted">
             Buscar pelo nome

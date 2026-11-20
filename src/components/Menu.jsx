@@ -58,6 +58,11 @@ function Menu() { {/*significa que ele recebe uma propriedade q será uma funç�
             Lista
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/novo" onClick={closeMenu} className={linkClass}>
+            Novo anime
+          </NavLink>
+        </li>
         {/*<li>
           <NavLink to="#highlight" onClick={closeMenu} className={linkClass}>
             Assisitindo agora

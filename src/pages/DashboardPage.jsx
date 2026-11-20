@@ -15,10 +15,10 @@ function DashboardPage() {
     (total, game) => total + game.hours,
     0,
   );
-  const completedCount = initialAnime.filter((game) => game.isCompleted).length;
+  const completedCount = initialAnime.filter((anime) => anime.isCompleted).length;
 
   const summaryCards = [
-    { id: 'games', title: 'Favoritados', value: initialAnime.length, icon: '💛' },
+    { id: 'animes', title: 'Favoritados', value: initialAnime.length, icon: '💛' },
     { id: 'hours', title: 'Li', value: totalHours, icon: '⏱️' },
     {
       id: 'completed',

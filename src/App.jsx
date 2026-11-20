@@ -5,6 +5,7 @@ import ListPage from './pages/ListPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import { Routes, Route } from 'react-router-dom';
 import DashboardPage from './pages/DashboardPage.jsx';
+import ItemForm from './components/ItemForm.jsx';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/lista" element={<ListPage />} />
+          <Route path="/novo" element={<ItemForm />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
